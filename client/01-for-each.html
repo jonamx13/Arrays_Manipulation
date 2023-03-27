@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <p>EXERCISE</p>
+    <div id="taskList"></div>
+    <script>
+        const products = [
+            { title: 'Burger', price: 121 },
+            { title: 'Pizza', price: 20 },
+        ];
+        const app = document.getElementById('app');
+        products.forEach(product => {
+            app.innerHTML += `<li>${product.title} - ${product.price}</li>`;
+        })
+    </script>
+    <script>
+        const introBarurini = [
+            { title: 'Illustration', status: 'Complete', done: true },
+            { title: 'After Effects Structure', status: 'Complete', done: true },
+            { title: 'Rigging', status: 'Complete', done: true },
+            { title: 'Animation_Preview', status: 'Pending', done: false },
+            { title: 'Animation_Finale', status: 'Pending', done: false },
+        ];
+
+        const checkList = document.getElementById('taskList');
+        introBarurini.forEach((task,index) => {
+            const taskRow = document.createElement('li');
+            const textTaskName = document.createTextNode(
+                `0${index}- ${task.title}`
+                );
+
+            const statusRow = document.createElement('span');
+            statusRow.innerHTML = ` - ${task.status}`;
+            statusRow.setAttribute('id', `status0${index}`)
+
+            const checkboxRow = document.createElement('input');
+            checkboxRow.setAttribute('type', 'checkbox');
+            checkboxRow.checked = task.done;
+            
+
+            taskRow.append(
+                checkboxRow,
+                textTaskName,
+                statusRow);
+            checkList.appendChild(taskRow);
+        });
+
+        const checkBoxes = checkList.querySelectorAll('input[type="checkbox"]');
+
+        checkBoxes.forEach((checkbox) => {
+            checkbox.addEventListener('click', function() {
+                const status = checkbox.nextElementSibling;
+                checkbox.checked
+                ? status.innerHTML = ' - Completed'
+                : status.innerHTML = ' - Pending';
+            })
+        });
+
+
+    </script>
+</body>
+</html>
