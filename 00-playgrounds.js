@@ -36,7 +36,7 @@ function multiplyElementMap(array) {
 }
 
 
-/* //*CHALLENGE 1
+/* //*CHALLENGE 2
     ? You must return a given object adding a property called "taxes"
     ? returning an int
 
@@ -96,3 +96,30 @@ function addNewAttr(array) {
         { ...item, taxes: Math.round( item.price * .19 )}
     ));
 }
+
+/* //*CHALLENGE 1
+    ? You must return with the given array,
+    ? words that are equal or bigger than 4 letters
+
+    TODO_:
+        !Example 1:
+        *Input: ['amor', 'sol', 'piedra', 'día']
+        *Output: [ 'amor', 'piedra' ]
+
+        !Example 2:
+        *Input: ['rosa', 'gol', 'pez', 'día', 'gafas']
+        *Output: [ 'rosa', 'gafas' ]
+*/
+
+const exampleFilter1 = ['amor', 'sol', 'piedra', 'día'];
+const exampleFilter2 = ['rosa', 'gol', 'pez', 'día', 'gafas'];
+
+console.log('Example1 Input', exampleFilter1);
+console.log('Example1 Output', filterByLength(exampleFilter1));
+console.log('Example2 Input', exampleFilter2);
+console.log('Example2 Output', filterByLength(exampleFilter2));
+
+function filterByLength(array) {
+    return array.filter(word => word.length >= 4)
+}
+
