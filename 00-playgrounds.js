@@ -36,3 +36,63 @@ function multiplyElementMap(array) {
 }
 
 
+/* //*CHALLENGE 1
+    ? You must return a given object adding a property called "taxes"
+    ? returning an int
+
+    TODO_ You should use:
+    ?-A function to add a new attribute
+    ?-These inputs and receive the given outputs:
+        *Input: 
+        [
+        {
+            name: "Product 1",
+            price: 1000,
+            stock: 10
+        },
+        {
+            name: "Product 2",
+            price: 2000,
+            stock: 20
+        }
+        ]
+
+        *Output:
+        [
+        {
+            name: "Product 1",
+            price: 1000,
+            stock: 10,
+            taxes: 190
+        },
+        {
+            name: "Product 2",
+            price: 2000,
+            stock: 20,
+            taxes: 380
+        }
+        ]
+*/
+
+const input = [
+    {
+        name: "Product 1",
+        price: 1000,
+        stock: 10
+    },
+    {
+        name: "Product 2",
+        price: 2000,
+        stock: 20
+    }
+];
+
+const addTaxes = addNewAttr(input);
+console.log('Input', input);
+console.log('Output',addTaxes);
+
+function addNewAttr(array) {
+    array.map(item => (
+        { ...item, taxes: Math.round( item.price * .19 )}
+    ));
+}
