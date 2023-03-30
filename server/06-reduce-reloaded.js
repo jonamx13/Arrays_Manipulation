@@ -60,8 +60,7 @@ console.log(rta2);
         ! 9-10 
 */
 
-// const numbers = [1,4,3,6,2,6,8,9,2,1,10,10,4,6,3,9,4,3,2,1,6,7,10];
-const numbers = [1,3,4,5,8];
+const numbers = [1,3,4,5,8,4,2,5,6,7,3,7,9,4,2,4,6,8,23,45,6,2,10,10,2];
 
 function rangesObj(array,...ranges) {
     //destructuring ranges
@@ -79,21 +78,12 @@ function rangesObj(array,...ranges) {
         });
         return validator
     },[]);
-
-    // assigning array ranges into object keys
-    const rangesKeys = ranges
-    .reduce((obj,item) => {
-        item = `${item[0]}-${item[1]}`;
-        obj[item]= 0;
-        return obj
-    },{});
-
     
+    // assign keys for ranges and count for number of fulfillments
     const rangesObj = array.reduce((obj,item) => {
-        // obj = rangesKeys;
-
-        const validation = rangeValidator.forEach((validator,index) => {
-            let rangeKey = `${ranges[index][0]}-${ranges[index][1]}`;
+        // iterate each number with every validation function
+       rangeValidator.forEach((validator,index) => {
+        const rangeKey = `${ranges[index][0]}-${ranges[index][1]}`;
 
             if(validator(item)) {
                 !obj[rangeKey]
@@ -104,8 +94,6 @@ function rangesObj(array,...ranges) {
 
         return obj
     },{});
-
-    
 
     return rangesObj
 }
