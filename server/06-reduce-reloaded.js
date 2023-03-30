@@ -61,23 +61,53 @@ console.log(rta2);
 */
 
 // const numbers = [1,4,3,6,2,6,8,9,2,1,10,10,4,6,3,9,4,3,2,1,6,7,10];
-const numbers = [1,3,4];
+const numbers = [1,3,4,5,8];
 
 function rangesObj(array,...ranges) {
-    //create range evaluator
-    const range = (value,min,max) => value >= min && value <= max;
     //destructuring ranges
     const [] = ranges;
 
-    //TODO: assign ranges to keys and add value to that range key
-    const rangesKeys = ranges.reduce((obj,item) => {
-        item = `${item[0]}-${item[1]}`
-         obj[item]= 0
+    // create validation functions
+    const rangeValidator = ranges
+    .reduce((validator, item) => {
+        validator.push((value) => {
+            const fromMin = item[0];
+            const toMax = item[1];
+
+            return value >= fromMin
+                && value <= toMax;
+        });
+        return validator
+    },[]);
+
+    // assigning array ranges into object keys
+    const rangesKeys = ranges
+    .reduce((obj,item) => {
+        item = `${item[0]}-${item[1]}`;
+        obj[item]= 0;
+        return obj
+    },{});
+
+    
+    const rangesObj = array.reduce((obj,item) => {
+        // obj = rangesKeys;
+
+        const validation = rangeValidator.forEach((validator,index) => {
+            let rangeKey = `${ranges[index][0]}-${ranges[index][1]}`;
+
+            if(validator(item)) {
+                !obj[rangeKey]
+                ? obj[rangeKey] = 1
+                : obj[rangeKey] += 1
+            }
+        });
 
         return obj
-    },{})
+    },{});
 
-    return rangesKeys
+    
+
+    return rangesObj
 }
 
-console.log(rangesObj(numbers,[1,4],[5,7],[8,9]));
+console.log(rangesObj(numbers,[1,4],[5,7],[8,10]));
