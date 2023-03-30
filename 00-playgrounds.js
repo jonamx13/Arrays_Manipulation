@@ -123,3 +123,36 @@ function filterByLength(array) {
     return array.filter(word => word.length >= 4)
 }
 
+
+/*
+//*CHALLENGE 3
+? You must return the sum of all numbers with a given array
+
+TODO_ You should use:
+    !Example 1:
+    *Input: [1, 1, 1]
+    *Output: 3
+
+    !Example 2:
+    *Input: [2, 4, 8]
+    *Output: 14
+    
+    !Example 3:
+    *Input: []
+    *Output: 0
+
+*/
+
+const sumArray1 = [1,1,1];
+const sumArray2 = [2,4,8];
+const sumArray3 = [];
+
+console.log('sum1',calcSum(sumArray1));
+console.log('sum2',calcSum(sumArray2));
+console.log('sum3',calcSum(sumArray3));
+
+function calcSum(numbers) {
+    const isEmpty = numbers.length === 0 ? true : false;
+
+    return !isEmpty ? numbers.reduce((sum, currNumber) => sum + currNumber) : 0;
+}
