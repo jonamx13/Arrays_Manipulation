@@ -177,16 +177,55 @@ TODO_ You should use:
 
 */
 
-const arrayIsEven1 = [1, 3, 5, 7, 10, 11];
-const arrayIsEven2 = [1, 3, 5];
-const arrayIsEven3 = [];
+const hasAnEven1 = [1, 3, 5, 7, 10, 11];
+const hasAnEven2 = [1, 3, 5];
+const hasAnEven3 = [];
 
-console.log('array1', checkArray(arrayIsEven1));
-console.log('array2', checkArray(arrayIsEven2));
-console.log('array3', checkArray(arrayIsEven3));
+console.log('array1 has an even:', checkIfHasAnEven(hasAnEven1));
+console.log('array2 has an even:', checkIfHasAnEven(hasAnEven2));
+console.log('array3 has an even:', checkIfHasAnEven(hasAnEven3));
 
-function checkArray(numbers) {
+function checkIfHasAnEven(numbers) {
     return numbers.length > 0 
         ? numbers.some(num => num % 2 === 0)
+        : false
+}
+
+/*
+//*CHALLENGE 5
+? You must return true if every number are even
+? within the given array
+
+TODO_ You should use:
+    !Example 1:
+    *Input: [2, 4, 6, 8, 10]
+    *Output: true
+
+    !Example 2:
+    *Input: [1, 3, 5, 7, 10, 11]
+    *Output: false
+    
+    !Example 3:
+    *Input: [1, 3, 5]
+    *Output: false
+
+    !Example 4:
+    *Input: []
+    *Output: false
+*/
+
+const arrayIsEven1 = [2, 4, 6, 8, 10];
+const arrayIsEven2 = [1, 3, 5, 7, 10, 11];
+const arrayIsEven3 = [1, 3, 5];
+const arrayIsEven4 = [];
+
+console.log('array1 IsEven:', checkIfEveryAreEven(arrayIsEven1));
+console.log('array2 IsEven:', checkIfEveryAreEven(arrayIsEven2));
+console.log('array3 IsEven:', checkIfEveryAreEven(arrayIsEven3));
+console.log('array4 IsEven:', checkIfEveryAreEven(arrayIsEven4));
+
+function checkIfEveryAreEven(numbers) {
+    return numbers.length > 0
+        ? numbers.every(number => number % 2 === 0)
         : false
 }
