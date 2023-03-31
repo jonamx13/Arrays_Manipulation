@@ -156,3 +156,37 @@ function calcSum(numbers) {
 
     return !isEmpty ? numbers.reduce((sum, currNumber) => sum + currNumber) : 0;
 }
+
+/*
+//*CHALLENGE 4
+? You must return true if there is at least an even number
+? within the given array
+
+TODO_ You should use:
+    !Example 1:
+    *Input: [1, 3, 5, 7, 10, 11]
+    *Output: true
+
+    !Example 2:
+    *Input: [1, 3, 5]
+    *Output: false
+    
+    !Example 3:
+    *Input: []
+    *Output: false
+
+*/
+
+const arrayIsEven1 = [1, 3, 5, 7, 10, 11];
+const arrayIsEven2 = [1, 3, 5];
+const arrayIsEven3 = [];
+
+console.log('array1', checkArray(arrayIsEven1));
+console.log('array2', checkArray(arrayIsEven2));
+console.log('array3', checkArray(arrayIsEven3));
+
+function checkArray(numbers) {
+    return numbers.length > 0 
+        ? numbers.some(num => num % 2 === 0)
+        : false
+}
