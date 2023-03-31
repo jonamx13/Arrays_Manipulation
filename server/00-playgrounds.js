@@ -229,3 +229,38 @@ function checkIfEveryAreEven(numbers) {
         ? numbers.every(number => number % 2 === 0)
         : false
 }
+
+/*
+//*CHALLENGE 6
+? You must return an array only with word that fulfill
+? the 'term condition'
+
+    TODO_ You should use:
+    ?-A function with (array, term) attributes
+     ?- array: array of string word
+     ?- term: string as parameter to search
+
+    ?-These inputs and receive the given outputs:
+    !Example 1:
+    *Input: 
+        * array: ["ana", "santi", "nico", "anastasia"]
+        * term: "ana"
+    *Output: 
+        * ["ana", "anastasia"]
+        
+    !Example 2:
+    *Input: 
+        * array: ["ana", "santi", "nico", "anastasia"]
+        * term: "xyz"
+    *Output: 
+        * []
+*/
+
+const arrayToFilter = ["ana", "santi", "nico", "anastasia"];
+
+console.log('term1', filterByTerm(arrayToFilter,'ana') );
+console.log('term1', filterByTerm(arrayToFilter,'axyz') );
+
+function filterByTerm(array, term) {
+    return array.filter(word => word.includes(term));
+}
