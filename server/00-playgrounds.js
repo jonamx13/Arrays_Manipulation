@@ -264,3 +264,43 @@ console.log('term1', filterByTerm(arrayToFilter,'axyz') );
 function filterByTerm(array, term) {
     return array.filter(word => word.includes(term));
 }
+
+/*
+//*CHALLENGE 7
+? You must return a string formatted as an URL
+? (everything into lowercase an separated by a '-')
+
+    TODO_ You should use:
+    ?-A function with (title) attribute
+     ?- title: receives a string
+
+    !Example 1:
+    *Input: 
+        * "The way to run Python"
+    *Output: 
+        * the-way-to-run-python
+        
+    !Example 2:
+    *Input: 
+        * The API for never stop learning
+    *Output: 
+        * the-api-to-never-stop-learning
+
+    !Example 3:
+    *Input: 
+        * Arrays Course
+    *Output: 
+        * arrays-course
+*/
+
+const titleParse1 = 'The way to run Python';
+const titleParse2 = 'The API for never stop learning';
+const titleParse3 = 'Arrays Course';
+
+console.log('URL1', parseToURL(titleParse1));
+console.log('URL2', parseToURL(titleParse2));
+console.log('URL3', parseToURL(titleParse3));
+
+function parseToURL(title) {
+    return title.split(' ').join('-').toLowerCase();
+}
