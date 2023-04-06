@@ -10,6 +10,7 @@ const rta2 = users.flatMap(user => user.attributes);
 console.log('map-flat', rta);
 console.log('flatmap', rta2);
 
+//TODO
 //*Class challenge
 const calendars = {
     primaryCalendar: [
@@ -37,3 +38,10 @@ const calendars = {
       },
     ],
   };
+
+ /* Is creating a new array that contains all the start dates from the appointments in
+ both the primary and secondary calendars of the `calendars` object. */
+  const rta3 = Object.values(calendars).flatMap(item => {
+    return item.map(date => date.startDate)
+  });
+  console.log(rta3);
