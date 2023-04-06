@@ -97,7 +97,7 @@ function addNewAttr(array) {
     ));
 }
 
-/* //*CHALLENGE 1
+/* //*CHALLENGE 3
     ? You must return with the given array,
     ? words that are equal or bigger than 4 letters
 
@@ -125,7 +125,7 @@ function filterByLength(array) {
 
 
 /*
-//*CHALLENGE 3
+//*CHALLENGE 4
 ? You must return the sum of all numbers with a given array
 
 TODO_ You should use:
@@ -158,7 +158,7 @@ function calcSum(numbers) {
 }
 
 /*
-//*CHALLENGE 4
+//*CHALLENGE 5
 ? You must return true if there is at least an even number
 ? within the given array
 
@@ -192,7 +192,7 @@ function checkIfHasAnEven(numbers) {
 }
 
 /*
-//*CHALLENGE 5
+//*CHALLENGE 6
 ? You must return true if every number are even
 ? within the given array
 
@@ -231,7 +231,7 @@ function checkIfEveryAreEven(numbers) {
 }
 
 /*
-//*CHALLENGE 6
+//*CHALLENGE 7
 ? You must return an array only with word that fulfill
 ? the 'term condition'
 
@@ -266,7 +266,7 @@ function filterByTerm(array, term) {
 }
 
 /*
-//*CHALLENGE 7
+//*CHALLENGE 8
 ? You must return a string formatted as an URL
 ? (everything into lowercase an separated by a '-')
 
@@ -303,4 +303,41 @@ console.log('URL3', parseToURL(titleParse3));
 
 function parseToURL(title) {
     return title.split(' ').join('-').toLowerCase();
+}
+
+/*
+//*CHALLENGE 8
+? You must return the total word count from an array of strings
+
+    !Example 1:
+    *Input: 
+    [
+    "Beautiful is better than ugly",
+    "Explicit is better than implicit",
+    "Simple is better than complex",
+    "Complex is better than complicated",
+    ]
+    *Output: 
+    20
+        
+*/
+
+const wordsToCount = [
+    "   Beautiful is better than ugly",
+    " Explicit is better than implicit  ",
+    "  Simple is better than complex   ",
+    " Complex is better than complicated   ",
+    ];
+
+console.log('The number of words is: ', wordsCount(wordsToCount));
+
+function wordsCount(array) {
+    let count = 0;
+
+    array.flatMap( line => {
+        //trim to take off spaces at the beggining
+        count += line.trim().split(' ').length;
+    });
+
+    return count;
 }
